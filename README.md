@@ -36,6 +36,15 @@ python cimne_cpg.py run --help
 | `batch ADMISSIONS.csv [-o OUT.csv]` | Checks every row of an admissions CSV in the `ds.csv` format. Writes one result row per patient and prints a REPAIR vs Exitus summary. |
 | `vars` | Lists every variable the rules use, with its operators, priority levels, units and expected values. |
 
+## Web app
+
+[app.py](app.py) is a Streamlit page for trying the engine by hand. You either fill in a patient form or paste a patient JSON (same format as below) into the "Paste patient JSON" box. The page then shows the engine's status, recommendations and conditional alerts. It needs Streamlit 1.33 or later:
+
+```bash
+pip install "streamlit>=1.33"
+streamlit run app.py
+```
+
 ## The patient JSON
 
 The patient is one flat JSON object. Each key is an engine variable name (run `vars` to see the full list):
